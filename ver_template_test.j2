@@ -4,7 +4,7 @@ static const char* FULL_VERSION = "{{version}}";
 static const char* APP_NAME = "{{name}}";
 static const char* BRANCH = "{{stamped_on_branch}}";
 static const char* RELEASE_MODE = "{{release_mode}}";
-static const char* BUILD_TYPE = "{{version_metadata['build_type']}}";
+static const char* BUILD_TYPE = "{{version_metadata['BUILD_TYPE']}}";
 static const char* BUILD_FLAGS = "{{version_metadata['CXX_FLAGS']}}";
 static const char* CHANGESETS =
 {% for k,v in changesets.items() %}
