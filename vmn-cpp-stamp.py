@@ -105,13 +105,13 @@ def main():
                 raise RuntimeError("vmn command failed")
             ver_info = vmn_ctx.vcs.backend.get_latest_reachable_version_info(
                 args.target)
-            stamped_version = "0.0.18" # ver_info['stamping']['app']['_version']
+            stamped_version = ver_info['stamping']['app']['_version']
 
         run_cmd(
             ['vmn', '--debug', 'add', args.target, '--bm', buildmetadata_name, '--vmp', 'build_metadata.yml'])
         full_version = f"{stamped_version}+{buildmetadata_name}"
         run_cmd(['vmn', '--debug', 'gen', args.target, '-v',
-                 full_version, '-t', '../../ver_template_test.j2', '-o', 'out.cpp'])
+                 full_version, '-t', '../ver_template_test.j2', '-o', 'out.cpp'])
     except Exception as e:
         if args.debug:
             raise
