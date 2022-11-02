@@ -86,6 +86,8 @@ def main():
         build_metadata.update(target_flags)
         build_metadata['LINK_FLAGS'] = target_link_flags
         build_metadata['BUILD_TYPE'] = cmake_cache_config[CMakeConfigKeys.CMAKE_BUILD_TYPE]
+        if build_metadata['BUILD_TYPE'] == '':
+            raise RuntimeError('Error: your cmake project must have an explicit BUILD_TYPE')
         build_metadata['PLATFORM'] = distro_info['DISTRIB_DESCRIPTION']
 
         yaml.dump(build_metadata, open("build_metadata.yml", "w"))
