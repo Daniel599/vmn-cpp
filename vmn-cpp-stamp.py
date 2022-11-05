@@ -105,7 +105,7 @@ def main():
             err = vmn.handle_stamp(vmn_ctx)
             if err:
                 raise RuntimeError("vmn command failed")
-            ver_info = vmn_ctx.vcs.backend.get_latest_reachable_version_info(
+            ver_info = vmn_ctx.vcs.backend.get_first_reachable_version_info(
                 args.target)
             stamped_version = ver_info['stamping']['app']['_version']
 
